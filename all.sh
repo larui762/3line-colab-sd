@@ -269,7 +269,7 @@ function run {
     cd $BASEPATH && python launch.py --listen --share --xformers --enable-insecure-extension-access --theme dark --clip-models-path $BASEPATH/models/CLIP
 }
 
-BASEPATH=/content/onedrive/SD
+BASEPATH=/content/drive/SD
 TEMPLATE_LOCATION="https://github.com/larui762/3line-colab-sd"
 TEMPLATE_NAME="camenduru"
 while [[ $# -gt 0 ]]
