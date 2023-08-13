@@ -226,10 +226,10 @@ function prepare_pip_deps {
 
 function prepare_fuse_dir {
     #Prepare drive fusion MOVE THIS TOLATER
-    mkdir /content/fused-models
-    mkdir /content/models
-    mkdir /content/fused-lora
-    mkdir /content/lora
+    mkdir /content/drive/model/fused-models
+    mkdir /content/drive/model/models
+    mkdir /content/drive/model/fused-lora
+    mkdir /content/drive/model/lora
     unionfs-fuse $BASEPATH/models/Stable-diffusion=RW:/content/models=RW /content/fused-models
     unionfs-fuse $BASEPATH/extensions/sd-webui-additional-networks/models/lora=RW:$BASEPATH/models/Lora=RW:/content/lora=RW /content/fused-lora
 }
