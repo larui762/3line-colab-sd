@@ -1,2 +1,0 @@
-https://huggingface.co/embed/negative
-https://huggingface.co/embed/lora
