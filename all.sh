@@ -221,7 +221,7 @@ function install_from_template {
 function prepare_pip_deps {
     pip install -q torch==2.0.0+cu118 torchvision==0.15.1+cu118 torchaudio==2.0.1+cu118 torchtext==0.15.1 torchdata==0.6.0 --extra-index-url https://download.pytorch.org/whl/cu118 -U
     pip install -q xformers==0.0.18 triton==2.0.0 -U
-    pip install torchmetrics==0.11.4
+    pip install torchmetrics==0.11.0
 }
 
 function prepare_fuse_dir {
@@ -270,8 +270,8 @@ function run {
     cd $BASEPATH && python launch.py --listen --share --xformers --enable-insecure-extension-access --theme dark --clip-models-path $BASEPATH/models/CLIP
 }
 
-BASEPATH=/content/drive/SD
-TEMPLATE_LOCATION="https://github.com/larui762/3line-colab-sd"
+BASEPATH=/content/drive/MyDrive/SD
+TEMPLATE_LOCATION="https://github.com/AI-skimos/3line-colab-sd"
 TEMPLATE_NAME="camenduru"
 while [[ $# -gt 0 ]]
 do
@@ -334,7 +334,7 @@ fi
 
 echo "FORCE_INSTALL: $FORCE_INSTALL"
 echo "TEMPLATE_LOCATION: $TEMPLATE_LOCATION"
-echo "TEMPLATE_NAME: $TEMPLATE_NAME" 
+echo "TEMPLATE_NAME: $TEMPLATE_NAME"
 echo "FINAL_PATH: $FINAL_PATH"
 
 #Update packages
