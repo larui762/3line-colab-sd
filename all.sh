@@ -95,17 +95,16 @@ function sed_for {
         return 1
     fi
     if [[ $option == "installation" ]]; then
-        !sed -i -e 's/    start()/    #start()/g' $base_dir/launch.py
+        sed -i -e 's/    start()/    #start()/g' $base_dir/launch.py
     elif [[ $option == "run" ]]; then
-        sed -i -e '''/from modules import launch_utils/a\import os''' $base_dir/launch.py
-        sed -i -e '''/        prepare_environment()/a\        os.system\(f\"""sed -i -e ''\"s/dict()))/dict())).cuda()/g\"''  /content/drive/SD/repositories/stable-diffusion-stability-ai/ldm/util.py""")''' $base_dir/launch.py
-        sed -i -e 's/\["sd_model_checkpoint"\]/\["sd_model_checkpoint","sd_vae","CLIP_stop_at_last_layers"\]/g' $base_dir/modules/shared.py
+        sed -i -e """/    prepare_environment()/a\    os.system\(f\'''sed -i -e ''\"s/dict()))/dict())).cuda()/g\"'' $base_dir/repositories/stable-diffusion-stability-ai/ldm/util.py''')""" $base_dir/launch.py
+        sed -i -e 's/\"sd_model_checkpoint\"\,/\"sd_model_checkpoint\,sd_vae\,CLIP_stop_at_last_layers\"\,/g' $base_dir/modules/shared.py
     else
         echo "Error: Invalid argument '$option'"
         echo "Usage: sed_for <installation|run> <base_dir>"
         return 1
     fi
-    !sed -i -e 's/checkout {commithash}/checkout --force {commithash}/g' $base_dir/launch.py
+    sed -i -e 's/checkout {commithash}/checkout --force {commithash}/g' $base_dir/launch.py
 }
 
 function prepare_perf_tools {
@@ -220,8 +219,8 @@ function install_from_template {
 }
 
 function prepare_pip_deps {
-    pip install -q torch==2.0.1+cu118 torchvision==0.15.2+cu118 torchaudio==2.0.2+cu118 torchtext==0.15.2 torchdata==0.6.1 --extra-index-url https://download.pytorch.org/whl/cu118 -U
-    pip install -q xformers==0.0.20 triton==2.0.0 gradio_client==0.2.7 -U
+    pip install -q torch==2.0.0+cu118 torchvision==0.15.1+cu118 torchaudio==2.0.1+cu118 torchtext==0.15.1 torchdata==0.6.0 --extra-index-url https://download.pytorch.org/whl/cu118 -U
+    pip install -q xformers==0.0.18 triton==2.0.0 -U
     pip install torchmetrics
 }
 
@@ -268,7 +267,7 @@ function run {
     #Prepare for running
     sed_for run $BASEPATH
 
-    cd $BASEPATH && python launch.py --listen --share --xformers --enable-insecure-extension-access --theme dark $BASEPATH/models/CLIP
+    cd $BASEPATH && python launch.py --listen --share --xformers --enable-insecure-extension-access --theme dark --clip-models-path $BASEPATH/models/CLIP
 }
 
 BASEPATH=/content/drive/SD
@@ -307,7 +306,7 @@ do
         echo "Usage: $0 [-f|--force-install] [-l|--template-location <git repo|directory>] [-n|--template-name <name>] [-i|--install-path <directory>]"
         echo "Options:"
         echo "-f, --force-install          Force reinstall"
-        echo "-l, --template-location      Location of the template repo or local directory (default: https://github.com/larui762/3line-colab-sd)"
+        echo "-l, --template-location      Location of the template repo or local directory (default: https://github.com/AI-skimos/3line-colab-sd)"
         echo "-n, --template-name          Name of the template to install (default: templates/camenduru)"
         echo "-i, --install-path           Path to install SD (default: /content/drive/MyDrive/SD)"
         exit 1
