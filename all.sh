@@ -98,7 +98,7 @@ function sed_for {
         !sed -i -e 's/    start()/    #start()/g' $base_dir/launch.py
     elif [[ $option == "run" ]]; then
         sed -i -e '''/from modules import launch_utils/a\import os''' $base_dir/launch.py
-        sed -i -e '''/        prepare_environment()/a\        os.system\(f\"""sed -i -e ''\"s/dict()))/dict())).cuda()/g\"''  /content/drive/Mydrive/SD/repositories/stable-diffusion-stability-ai/ldm/util.py""")''' $base_dir/launch.py
+        sed -i -e '''/        prepare_environment()/a\        os.system\(f\"""sed -i -e ''\"s/dict()))/dict())).cuda()/g\"''  /content/drive/SD/repositories/stable-diffusion-stability-ai/ldm/util.py""")''' $base_dir/launch.py
         sed -i -e 's/\["sd_model_checkpoint"\]/\["sd_model_checkpoint","sd_vae","CLIP_stop_at_last_layers"\]/g' $base_dir/modules/shared.py
     else
         echo "Error: Invalid argument '$option'"
