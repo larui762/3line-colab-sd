@@ -219,22 +219,8 @@ function install_from_template {
 }
 
 function prepare_pip_deps {
-    if os.path.exists('venv'):
-        print('环境已安装')
-    else:
-        %cd /content/drive/
-        if not os.path.exists('venv.tar.gz'):
-            print('下载 venv')
-            !aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/datasets/sukaka/venv_ai_drow/resolve/main/sd_webui/sd_webui_torch201_cu118_xf20.tar.gz -o venv.tar.gz
-        print('successfully downloaded venv.tar.gz')
-        %cd /opt/conda/envs/
-        !mkdir venv
-        %cd venv
-        print('installing venv')
-        os.system('apt -y install -qq pigz > /dev/null 2>&1')
-        !pigz -dc -p 5 /content/drive/venv.tar.gz | tar xf -
-        !source /opt/conda/bin/activate venv
-        print('环境安装完毕')
+    !pip install -q torch==2.0.1+cu118 torchvision==0.15.2+cu118 torchaudio==2.0.2+cu118 torchtext==0.15.2 torchdata==0.6.1 --extra-index-url https://download.pytorch.org/whl/cu118 -U
+    !pip install -q xformers==0.0.20 triton==2.0.0 gradio_client==0.2.7 -U
 }
 
 function prepare_fuse_dir {
