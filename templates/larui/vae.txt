@@ -1,1 +1,5 @@
 https://civitai.com/api/download/models/129687?type=VAE&format=Other
+https://huggingface.co/datasets/sukaka/sd_models_fp16/resolve/main/clearvae.vae.pt
+https://huggingface.co/dector/vae-840000/resolve/main/vae-ft-mse-840000-ema-pruned.ckpt
+https://huggingface.co/WarriorMama777/OrangeMixs/resolve/main/VAEs/orangemix.vae.pt
+https://civitai.com/api/download/models/119279
