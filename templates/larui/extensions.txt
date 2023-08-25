@@ -1,5 +1,6 @@
-https://github.com/deforum-art/deforum-for-automatic1111-webui
+https://github.com/s0md3v/sd-webui-roop
 https://github.com/camenduru/stable-diffusion-webui-images-browser
+https://github.com/zanllp/sd-webui-infinite-image-browsing
 https://github.com/camenduru/stable-diffusion-webui-huggingface
 https://github.com/kohya-ss/sd-webui-additional-networks
 https://github.com/Mikubill/sd-webui-controlnet
@@ -17,7 +18,7 @@ https://github.com/camenduru/sd_webui_stealth_pnginfo
 https://github.com/thomasasfk/sd-webui-aspect-ratio-helper
 https://github.com/dtlnor/stable-diffusion-webui-localization-zh_CN
 https://github.com/AI-skimos/sd-webui-prompt-sr-range
-https://github.com/journey-ad/sd-webui-bilingual-localization
+https://github.com/DominikDoom/a1111-sd-webui-tagcomplete
 https://github.com/butaixianran/Stable-Diffusion-Webui-Civitai-Helper
 https://github.com/vladmandic/sd-extension-system-info
 https://github.com/KohakuBlueleaf/a1111-sd-webui-lycoris
