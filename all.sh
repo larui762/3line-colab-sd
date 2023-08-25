@@ -219,8 +219,8 @@ function install_from_template {
 }
 
 function prepare_pip_deps {
-    pip install -q torch==2.0.1+cu118 torchvision==0.15.2+cu118 torchaudio==2.0.2+cu118 torchtext==0.15.2 torchdata==0.6.1 --extra-index-url https://download.pytorch.org/whl/cu118 -U
-    pip install -q xformers==0.0.20 triton==2.0.0 gradio_client==0.2.7 -U
+    pip install -q torch==2.0.0+cu118 torchvision==0.15.1+cu118 torchaudio==2.0.1+cu118 torchtext==0.15.1 torchdata==0.6.0 --extra-index-url https://download.pytorch.org/whl/cu118 -U
+    pip install -q xformers==0.0.20 triton==2.0.0 -U
     pip install torchmetrics==0.11.4
 }
 
@@ -267,10 +267,10 @@ function run {
     #Prepare for running
     sed_for run $BASEPATH
 
-    cd $BASEPATH && python launch.py --listen --share --xformers --enable-insecure-extension-access --theme dark --clip-models-path $BASEPATH/models/CLIP
+    cd $BASEPATH && python launch.py --listen --share --no-half-vae --xformers --opt-split-attention --enable-insecure-extension-access --theme dark --clip-models-path $BASEPATH/models/CLIP
 }
 
-BASEPATH=/content/drive/SD
+BASEPATH=/content/drive/MyDrive/SD
 TEMPLATE_LOCATION="https://github.com/larui762/3line-colab-sd"
 TEMPLATE_NAME="larui"
 while [[ $# -gt 0 ]]
@@ -306,7 +306,7 @@ do
         echo "Usage: $0 [-f|--force-install] [-l|--template-location <git repo|directory>] [-n|--template-name <name>] [-i|--install-path <directory>]"
         echo "Options:"
         echo "-f, --force-install          Force reinstall"
-        echo "-l, --template-location      Location of the template repo or local directory (default: https://github.com/AI-skimos/3line-colab-sd)"
+        echo "-l, --template-location      Location of the template repo or local directory (default: https://github.com/DeadBoy2537/3line-colab-sd)"
         echo "-n, --template-name          Name of the template to install (default: templates/camenduru)"
         echo "-i, --install-path           Path to install SD (default: /content/drive/MyDrive/SD)"
         exit 1
