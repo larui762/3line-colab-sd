@@ -1,1 +1,7 @@
-https://civitai.com/api/download/models/129687?type=Model&format=SafeTensor&size=full&fp=fp32
+https://civitai.com/api/download/models/126470
+https://civitai.com/api/download/models/11745
+https://civitai.com/api/download/models/138620
+https://civitai.com/api/download/models/142651
+https://civitai.com/api/download/models/129687
+https://civitai.com/api/download/models/119057
+https://civitai.com/api/download/models/106922
